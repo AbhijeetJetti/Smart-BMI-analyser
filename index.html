@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart BMI Analyzer</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏃‍♂️ Smart BMI Analyzer</h1>
+            <p>Real-time insights • AI-driven assistance • Gamified health tracking</p>
+        </div>
+
+        <div class="main-grid">
+            <!-- Input Card -->
+            <div class="card">
+                <h2 class="card-title">
+                    📊 Enter Your Details
+                </h2>
+                <form id="bmi-form">
+                    <div class="form-group">
+                        <label class="form-label">Name (Optional)</label>
+                        <input type="text" class="form-input" id="name" placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Age</label>
+                        <input type="number" class="form-input" id="age" placeholder="Enter your age" min="1" max="120">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Gender</label>
+                        <select class="form-input" id="gender">
+                            <option value="">Select gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <div class="form-group" style="flex: 1;">
+                            <label class="form-label">Height (cm)</label>
+                            <input type="number" class="form-input" id="height" placeholder="170" min="50" max="300" step="0.1">
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label class="form-label">Weight (kg)</label>
+                            <input type="number" class="form-input" id="weight" placeholder="70" min="10" max="500" step="0.1">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn">
+                        🔍 Calculate BMI
+                    </button>
+                </form>
+                <button class="btn btn-voice" onclick="startVoiceInput()">
+                    <span id="voice-icon">🎤</span> Voice Input
+                </button>
+            </div>
+
+            <!-- Quick Tips Card -->
+            <div class="card">
+                <h2 class="card-title">
+                    💡 Quick Health Tips
+                </h2>
+                <div id="health-tips">
+                    <div class="insight-card">
+                        <div class="insight-title">🥗 Balanced Diet</div>
+                        <p>Include fruits, vegetables, lean proteins, and whole grains in your daily meals.</p>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-title">💧 Stay Hydrated</div>
+                        <p>Drink at least 8 glasses of water daily to maintain optimal body function.</p>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-title">🏃‍♀️ Regular Exercise</div>
+                        <p>Aim for at least 150 minutes of moderate exercise per week.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Card -->
+            <div class="card results-card" id="results-card">
+                <h2 class="card-title">
+                    📈 Your BMI Results
+                </h2>
+                <div class="bmi-display" id="bmi-value">0.0</div>
+                <div class="bmi-category" id="bmi-category">Calculate your BMI</div>
+                
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <div class="insight-title">🎯 Health Status</div>
+                        <p id="health-status">Enter your details to see your health status</p>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-title">📋 Recommendations</div>
+                        <p id="recommendations">Personalized recommendations will appear here</p>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-title">⚖️ Ideal Weight Range</div>
+                        <p id="ideal-weight">Your ideal weight range will be calculated</p>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-title">🔥 Daily Calories</div>
+                        <p id="daily-calories">Estimated daily calorie needs</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gamification Card -->
+            <div class="card gamification" id="gamification-card" style="display: none;">
+                <h2 class="card-title">
+                    🏆 Health Journey
+                </h2>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                </div>
+                <p id="progress-text">Start your health journey!</p>
+                
+                <div class="achievements">
+                    <div class="achievement" id="first-calc">
+                        <div class="achievement-icon">🎯</div>
+                        <div>First Calculation</div>
+                    </div>
+                    <div class="achievement" id="healthy-range">
+                        <div class="achievement-icon">💚</div>
+                        <div>Healthy Range</div>
+                    </div>
+                    <div class="achievement" id="voice-user">
+                        <div class="achievement-icon">🎤</div>
+                        <div>Voice Explorer</div>
+                    </div>
+                    <div class="achievement" id="health-tracker">
+                        <div class="achievement-icon">📊</div>
+                        <div>Health Tracker</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Card -->
+            <div class="card history" id="history-card" style="display: none;">
+                <h2 class="card-title">
+                    📚 BMI History
+                </h2>
+                <div id="history-list">
+                    <p>Your BMI history will appear here after calculations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+    <script src="index.js"></script>
+</body>
+</html>
